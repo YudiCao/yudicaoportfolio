@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="曹雨荻作品集：装置艺术、互动媒体、插画、视觉设计与创意计算项目。"
+    />
+    <title>作品集 ｜ 曹雨荻</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="portfolio-page" data-page-title-key="meta_title_work" data-page-desc-key="meta_desc_work">
+    <a class="skip-link" href="#portfolio-main" data-i18n="skip_link">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" data-i18n="logo">曹雨荻</a>
+        <nav id="site-nav" class="site-nav" aria-label="主导航">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav_about">关于</a></li>
+            <li><a href="portfolio.html" data-i18n="nav_work" aria-current="page">作品集</a></li>
+            <li><a href="resume.html" data-i18n="nav_resume">简历</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">联系</a></li>
+          </ul>
+        </nav>
+        <div class="header-end">
+          <div
+            class="lang-switch"
+            id="lang-switch-group"
+            role="group"
+            aria-label="语言"
+          >
+            <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">
+              中文
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="打开菜单"
+          >
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="portfolio-main" class="portfolio-main">
+      <section id="work" class="section section-work-light work-gallery-section">
+        <div id="work-gallery-root" class="container work-gallery-inner">
+          <h1 class="section-title work-gallery-title" data-i18n="work_title">作品集</h1>
+          <p class="section-lead section-lead-center work-gallery-lead" data-i18n="work_lead">
+            跨越装置艺术、插画、视觉设计与创意计算的多元创作。
+          </p>
+          <div id="work-filter-bar" class="work-filter-bar" role="toolbar" aria-label="作品分类"></div>
+          <div id="work-card-grid" class="work-card-grid"></div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          © <span id="year"></span>
+          <span data-i18n="footer_name">曹雨荻</span>
+          ｜
+          <span data-i18n="footer_suffix">个人作品集</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/works-data.js"></script>
+    <script src="js/work-gallery.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

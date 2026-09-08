@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="曹雨荻 — 跨媒体艺术家与设计师，目前在北京发展。作品涵盖装置艺术、互动媒体、插画、视觉设计与数字叙事。"
+    />
+    <title>关于 ｜ 曹雨荻</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="about-page" data-page-title-key="meta_title_about" data-page-desc-key="meta_desc_about">
+    <a class="skip-link" href="#main" data-i18n="skip_link">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" data-i18n="logo">曹雨荻</a>
+        <nav id="site-nav" class="site-nav" aria-label="主导航">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav_about" aria-current="page">关于</a></li>
+            <li><a href="portfolio.html" data-i18n="nav_work">作品集</a></li>
+            <li><a href="resume.html" data-i18n="nav_resume">简历</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">联系</a></li>
+          </ul>
+        </nav>
+        <div class="header-end">
+          <div
+            class="lang-switch"
+            id="lang-switch-group"
+            role="group"
+            aria-label="语言"
+          >
+            <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">
+              中文
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="打开菜单"
+          >
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero">
+        <div class="container hero-inner">
+          <p class="hero-kicker" data-i18n="hero_kicker">你好，我是</p>
+          <h1 class="hero-title">
+            <span class="hero-name" data-i18n="hero_name">曹雨荻</span>
+            <span class="hero-role" data-i18n="hero_role">跨媒体艺术家 ｜ 设计师</span>
+          </h1>
+          <p class="hero-lead" data-i18n="hero_lead">
+            创作横跨装置、插画、视觉艺术与创意计算等；以设计与技术为语言，探索感知与体验。
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="portfolio.html" data-i18n="hero_cta_work">作品集</a>
+            <a class="btn btn-ghost" href="contact.html" data-i18n="hero_cta_contact">联系我</a>
+          </div>
+          <figure id="hero-project-carousel" class="hero-feature hero-carousel">
+            <a
+              id="hero-project-link"
+              class="hero-feature-link"
+              href="portfolio.html"
+              aria-label="查看作品项目"
+            >
+              <img
+                id="hero-project-image"
+                src="assets/work/revisitation-cover.jpg"
+                alt=""
+                width="1200"
+                height="800"
+                decoding="async"
+              />
+            </a>
+          </figure>
+        </div>
+        <div class="hero-bg" aria-hidden="true"></div>
+      </section>
+
+      <section id="about" class="section">
+        <div class="container narrow about-body">
+          <h2 class="section-title" data-i18n="about_title">关于我</h2>
+          <p data-i18n="about_p1">
+            你好，我是曹雨荻。我是一名跨学科设计师与创意技术工作者，现常驻北京。
+          </p>
+          <p data-i18n="about_p2">
+            我专注于交互设计、插画与视觉叙事。我的作品习惯将插画艺术、数字媒体与创意计算相融合，通过富有感染力的视觉语言，探索技术与人类情感之间的有意义互动。在设计实践中，我对“沟通”与“文化遗产的数字化重构”这两个主题尤为关注。
+          </p>
+          <p data-i18n="about_p3">
+            我毕业于加拿大 OCAD University（安大略艺术设计学院），拥有数字未来（Digital Futures）设计硕士学位以及插画专业设计学士学位。
+          </p>
+          <p data-i18n="about_p4">
+            我的设计与艺术作品曾多次在海内外展出，包括 OCADU 研究生画廊、GradEX 109 以及加拿大国家戏剧学校戏剧节等。我带着在多伦多沉淀的设计研究视野回到北京，期待在这里用创意技术和感官互动创造新的价值。
+          </p>
+        </div>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          © <span id="year"></span>
+          <span data-i18n="footer_name">曹雨荻</span>
+          ｜
+          <span data-i18n="footer_suffix">个人作品集</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/works-data.js"></script>
+    <script src="js/hero-carousel.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

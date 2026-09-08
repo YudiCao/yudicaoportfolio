@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="曹雨荻 — 跨媒体艺术家与设计师，目前在北京发展。作品涵盖装置艺术、互动媒体、插画、视觉设计与数字叙事。"
+    />
+    <title>项目 ｜ 曹雨荻</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="work-detail-page">
+    <a class="skip-link" href="#work-detail-page-main" data-i18n="skip_link">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" data-i18n="logo">曹雨荻</a>
+        <nav id="site-nav" class="site-nav" aria-label="主导航">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav_about">关于</a></li>
+            <li><a href="portfolio.html" data-i18n="nav_work" aria-current="page">作品集</a></li>
+            <li><a href="resume.html" data-i18n="nav_resume">简历</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact">联系</a></li>
+          </ul>
+        </nav>
+        <div class="header-end">
+          <div
+            class="lang-switch"
+            id="lang-switch-group"
+            role="group"
+            aria-label="语言"
+          >
+            <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">
+              中文
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="打开菜单"
+          >
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="work-detail-page-main" class="work-detail-main">
+      <div id="work-detail-root" class="container work-detail-inner">
+        <p id="work-detail-not-found" class="work-detail-not-found" hidden data-i18n="work_not_found">
+          未找到该项目
+        </p>
+
+        <article id="work-detail-article" class="work-detail-article" hidden>
+          <a class="work-detail-back" href="portfolio.html" data-i18n="work_detail_back">返回作品集</a>
+
+          <div class="work-detail-hero">
+            <img
+              id="work-detail-cover"
+              class="work-detail-cover"
+              src="assets/work/placeholder-cover.png"
+              alt=""
+              width="1200"
+              height="675"
+              decoding="async"
+            />
+          </div>
+
+          <h1 id="work-detail-title" class="work-detail-title"></h1>
+          <div id="work-detail-tags" class="work-detail-tags" aria-label="Tags"></div>
+
+          <section id="work-detail-meta-section" class="work-detail-meta-section" hidden>
+            <h2 class="work-detail-section-title" data-i18n="work_meta_heading">项目信息</h2>
+            <dl id="work-detail-meta" class="work-detail-meta"></dl>
+          </section>
+
+          <section id="work-detail-gallery-section" class="work-detail-gallery-section" hidden>
+            <div class="work-detail-section-head">
+              <h2 class="work-detail-section-title" data-i18n="work_gallery_heading">作品图集</h2>
+              <p class="work-detail-gallery-hint" data-i18n="work_gallery_hint">点击图片可查看大图</p>
+            </div>
+            <div id="work-detail-gallery" class="work-detail-gallery"></div>
+          </section>
+
+          <section id="work-detail-video-section" class="work-detail-video-section">
+            <h2 class="work-detail-video-title" data-i18n="work_video_heading">项目视频</h2>
+            <div id="work-detail-video-host" class="work-detail-video-host"></div>
+          </section>
+
+          <div id="work-detail-body" class="work-detail-body"></div>
+
+          <nav
+            id="work-detail-project-nav"
+            class="work-detail-project-nav"
+            aria-label="项目浏览"
+            hidden
+          >
+            <a
+              id="work-detail-prev-project"
+              class="work-detail-project-link work-detail-project-link-prev"
+              href="portfolio.html"
+            >
+              <span class="work-detail-project-label" data-i18n="work_prev_project">上一个项目</span>
+              <span id="work-detail-prev-project-title" class="work-detail-project-title"></span>
+            </a>
+            <a
+              id="work-detail-next-project"
+              class="work-detail-project-link work-detail-project-link-next"
+              href="portfolio.html"
+            >
+              <span class="work-detail-project-label" data-i18n="work_next_project">下一个项目</span>
+              <span id="work-detail-next-project-title" class="work-detail-project-title"></span>
+            </a>
+          </nav>
+        </article>
+      </div>
+    </main>
+
+    <div id="work-lightbox" class="work-lightbox" hidden>
+      <button
+        type="button"
+        id="work-lightbox-close"
+        class="work-lightbox-close"
+        data-i18n="work_lightbox_close"
+      >
+        关闭大图
+      </button>
+      <button
+        type="button"
+        id="work-lightbox-prev"
+        class="work-lightbox-nav work-lightbox-prev"
+        data-i18n="work_lightbox_prev"
+      >
+        上一页
+      </button>
+      <div class="work-lightbox-dialog" role="dialog" aria-modal="true">
+        <img id="work-lightbox-image" class="work-lightbox-image" src="" alt="" />
+      </div>
+      <button
+        type="button"
+        id="work-lightbox-next"
+        class="work-lightbox-nav work-lightbox-next"
+        data-i18n="work_lightbox_next"
+      >
+        下一页
+      </button>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          © <span id="year"></span>
+          <span data-i18n="footer_name">曹雨荻</span>
+          ｜
+          <span data-i18n="footer_suffix">个人作品集</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/works-data.js"></script>
+    <script src="js/work-detail.js"></script>
+    <script src="js/main.js"></script>
+  </body>
+</html>

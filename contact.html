@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="联系曹雨荻：邮箱、所在地、电话与微信。"
+    />
+    <title>联系 ｜ 曹雨荻</title>
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body class="contact-page" data-page-title-key="meta_title_contact" data-page-desc-key="meta_desc_contact">
+    <a class="skip-link" href="#contact-main" data-i18n="skip_link">跳到主要内容</a>
+
+    <header class="site-header">
+      <div class="container header-inner">
+        <a class="logo" href="index.html" data-i18n="logo">曹雨荻</a>
+        <nav id="site-nav" class="site-nav" aria-label="主导航">
+          <ul class="nav-list">
+            <li><a href="index.html" data-i18n="nav_about">关于</a></li>
+            <li><a href="portfolio.html" data-i18n="nav_work">作品集</a></li>
+            <li><a href="resume.html" data-i18n="nav_resume">简历</a></li>
+            <li><a href="contact.html" data-i18n="nav_contact" aria-current="page">联系</a></li>
+          </ul>
+        </nav>
+        <div class="header-end">
+          <div
+            class="lang-switch"
+            id="lang-switch-group"
+            role="group"
+            aria-label="语言"
+          >
+            <button type="button" class="lang-btn is-active" data-lang="zh" aria-pressed="true">
+              中文
+            </button>
+            <button type="button" class="lang-btn" data-lang="en" aria-pressed="false">
+              EN
+            </button>
+          </div>
+          <button
+            type="button"
+            class="nav-toggle"
+            aria-expanded="false"
+            aria-controls="site-nav"
+            aria-label="打开菜单"
+          >
+            <span class="nav-toggle-bar" aria-hidden="true"></span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="contact-main" class="contact-main">
+      <section class="section contact-section">
+        <div class="container narrow">
+          <h1 class="section-title" data-i18n="contact_title">联系</h1>
+          <p class="section-lead" data-i18n="contact_lead">
+            邮件与地址可直接查看；电话与微信号需主动点击显示，以减少无关采集。
+          </p>
+          <dl class="contact-details">
+            <dt data-i18n="contact_email_label">邮箱</dt>
+            <dd>
+              <a href="mailto:caoyudi.art@outlook.com">caoyudi.art@outlook.com</a>
+            </dd>
+            <dt data-i18n="contact_addr_label">地址</dt>
+            <dd data-i18n="contact_address">北京（朝阳区）｜ 加拿大多伦多</dd>
+            <dt data-i18n="contact_phone_label">电话</dt>
+            <dd class="contact-reveal-dd">
+              <button type="button" class="btn-reveal" id="btn-reveal-phone" data-i18n="contact_reveal_phone">
+                点击显示电话号码
+              </button>
+              <div id="phone-reveal-output" class="contact-reveal-output" hidden></div>
+            </dd>
+            <dt data-i18n="contact_wechat_label">微信</dt>
+            <dd class="contact-reveal-dd">
+              <button type="button" class="btn-reveal" id="btn-reveal-wechat" data-i18n="contact_reveal_wechat">
+                点击显示微信号
+              </button>
+              <div id="wechat-reveal-output" class="wechat-reveal-box" hidden>
+                <button
+                  type="button"
+                  class="btn-copy-id"
+                  id="btn-copy-wechat"
+                  aria-describedby="wechat-copy-hint"
+                >
+                  <span id="wechat-id-display" class="wechat-id-display"></span>
+                </button>
+                <p id="wechat-copy-hint" class="wechat-hint" data-i18n="contact_wechat_copy_hint">
+                  点击上方复制微信号
+                </p>
+              </div>
+            </dd>
+          </dl>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p>
+          © <span id="year"></span>
+          <span data-i18n="footer_name">曹雨荻</span>
+          ｜
+          <span data-i18n="footer_suffix">个人作品集</span>
+        </p>
+      </div>
+    </footer>
+
+    <script src="js/i18n.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/contact-reveal.js"></script>
+  </body>
+</html>
