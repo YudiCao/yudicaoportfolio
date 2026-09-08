@@ -66,7 +66,17 @@
             <a class="btn btn-primary" href="portfolio.html" data-i18n="hero_cta_work">作品集</a>
             <a class="btn btn-ghost" href="contact.html" data-i18n="hero_cta_contact">联系我</a>
           </div>
-          <figure id="hero-project-carousel" class="hero-feature hero-carousel">
+          <figure
+            id="hero-project-carousel"
+            class="hero-feature hero-carousel"
+            tabindex="0"
+            aria-label="Selected Works"
+          >
+            <div class="hero-carousel-meta">
+              <span class="hero-carousel-label" data-i18n="hero_selected_works">Selected Works</span>
+              <span id="hero-project-counter" class="hero-carousel-counter" aria-hidden="true"></span>
+              <span class="hero-carousel-hint" data-i18n="hero_scroll_hint">滚轮 / 滑动切换</span>
+            </div>
             <a
               id="hero-project-link"
               class="hero-feature-link"

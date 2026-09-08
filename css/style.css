@@ -482,9 +482,43 @@ a:hover {
 }
 
 .hero-feature {
+  position: relative;
   margin: clamp(2.8rem, 6vw, 4.5rem) auto 0;
   padding-bottom: 1.65rem;
   border-bottom: 1px solid var(--border);
+  outline: 0;
+}
+
+.hero-carousel-meta {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.85rem;
+  text-align: left;
+  color: var(--text-strong);
+}
+
+.hero-carousel-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  line-height: 1.2;
+  text-transform: uppercase;
+}
+
+.hero-carousel-counter {
+  font-family: var(--font-serif);
+  font-size: 0.95rem;
+  font-style: italic;
+  color: var(--text-muted);
+}
+
+.hero-carousel-hint {
+  justify-self: end;
+  font-size: 0.78rem;
+  line-height: 1.2;
+  color: var(--text-muted);
 }
 
 .hero-feature-link {
@@ -492,6 +526,8 @@ a:hover {
   position: relative;
   overflow: hidden;
   background: #efede9;
+  cursor: ns-resize;
+  touch-action: pan-y;
 }
 
 .hero-feature-link::after {
@@ -514,6 +550,11 @@ a:hover {
 
 .hero-feature:hover img {
   transform: scale(1.025);
+}
+
+.hero-carousel:focus-visible .hero-feature-link {
+  outline: 1px solid var(--text-strong);
+  outline-offset: 4px;
 }
 
 .hero-carousel.is-changing img {
@@ -2201,6 +2242,17 @@ a:hover {
 
   .hero-feature {
     margin-top: 2rem;
+  }
+
+  .hero-carousel-meta {
+    grid-template-columns: auto 1fr;
+    gap: 0.35rem 0.7rem;
+  }
+
+  .hero-carousel-hint {
+    grid-column: 1 / -1;
+    justify-self: start;
+    font-size: 0.74rem;
   }
 
   .hero-feature img {

@@ -35,6 +35,8 @@
       hero_cta_work: "作品集",
       hero_cta_contact: "联系我",
       hero_feature_caption: "曹雨荻，跨媒体艺术与设计",
+      hero_selected_works: "Selected Works",
+      hero_scroll_hint: "滚轮 / 滑动切换",
       about_title: "关于我",
       about_p1:
         "你好，我是曹雨荻。我是一名跨学科设计师与创意技术工作者，现常驻北京。",
@@ -117,6 +119,8 @@
       hero_cta_work: "Works",
       hero_cta_contact: "Contact",
       hero_feature_caption: "Yudi Cao, Cross-Media Art & Design",
+      hero_selected_works: "Selected Works",
+      hero_scroll_hint: "Scroll / swipe to browse",
       about_title: "About",
       about_p1:
         "Hi, I am Yudi Cao, an interdisciplinary designer and creative technologist currently based in Beijing.",

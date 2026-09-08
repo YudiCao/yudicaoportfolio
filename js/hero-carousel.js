@@ -2,10 +2,17 @@
   var root;
   var link;
   var image;
+  var counter;
   var projects = [];
   var index = 0;
   var timer = null;
+  var manualTimer = null;
   var intervalMs = 4200;
+  var wheelLocked = false;
+  var pointerInside = false;
+  var focusInside = false;
+  var touchStartX = 0;
+  var touchStartY = 0;
 
   function lang() {
     return typeof PortfolioI18n !== "undefined" ? PortfolioI18n.getLang() : "zh";
@@ -48,6 +55,12 @@
       image.alt = title;
       link.href = projectHref(project);
       link.setAttribute("aria-label", (L === "zh" ? "查看项目：" : "View project: ") + title);
+      if (counter) {
+        counter.textContent =
+          String(index + 1).padStart(2, "0") +
+          " / " +
+          String(projects.length).padStart(2, "0");
+      }
       if (root) root.classList.remove("is-changing");
     }
 
@@ -62,6 +75,16 @@
 
   function next() {
     updateProject(index + 1, true);
+  }
+
+  function manualStep(offset) {
+    if (projects.length < 2) return;
+    stop();
+    if (manualTimer) window.clearTimeout(manualTimer);
+    updateProject(index + offset, true);
+    manualTimer = window.setTimeout(function () {
+      if (!pointerInside && !focusInside) start();
+    }, intervalMs);
   }
 
   function stop() {
@@ -81,6 +104,7 @@
     root = document.getElementById("hero-project-carousel");
     link = document.getElementById("hero-project-link");
     image = document.getElementById("hero-project-image");
+    counter = document.getElementById("hero-project-counter");
     projects = getProjects();
     if (!root || !link || !image || !projects.length) return;
 
@@ -88,10 +112,70 @@
     updateProject(index, false);
     start();
 
-    root.addEventListener("mouseenter", stop);
-    root.addEventListener("mouseleave", start);
-    root.addEventListener("focusin", stop);
-    root.addEventListener("focusout", start);
+    root.addEventListener("mouseenter", function () {
+      pointerInside = true;
+      stop();
+    });
+    root.addEventListener("mouseleave", function () {
+      pointerInside = false;
+      start();
+    });
+    root.addEventListener("focusin", function () {
+      focusInside = true;
+      stop();
+    });
+    root.addEventListener("focusout", function () {
+      focusInside = false;
+      start();
+    });
+    root.addEventListener(
+      "wheel",
+      function (event) {
+        var delta =
+          Math.abs(event.deltaY) >= Math.abs(event.deltaX)
+            ? event.deltaY
+            : event.deltaX;
+        if (Math.abs(delta) < 8) return;
+        event.preventDefault();
+        if (wheelLocked) return;
+        wheelLocked = true;
+        window.setTimeout(function () {
+          wheelLocked = false;
+        }, 520);
+        manualStep(delta > 0 ? 1 : -1);
+      },
+      { passive: false }
+    );
+    root.addEventListener("keydown", function (event) {
+      if (event.key === "ArrowRight" || event.key === "ArrowDown") {
+        event.preventDefault();
+        manualStep(1);
+      }
+      if (event.key === "ArrowLeft" || event.key === "ArrowUp") {
+        event.preventDefault();
+        manualStep(-1);
+      }
+    });
+    root.addEventListener(
+      "touchstart",
+      function (event) {
+        if (!event.changedTouches || !event.changedTouches.length) return;
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+      },
+      { passive: true }
+    );
+    root.addEventListener(
+      "touchend",
+      function (event) {
+        if (!event.changedTouches || !event.changedTouches.length) return;
+        var dx = event.changedTouches[0].clientX - touchStartX;
+        var dy = event.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        manualStep(dx < 0 ? 1 : -1);
+      },
+      { passive: true }
+    );
   }
 
   global.HeroCarousel = {
