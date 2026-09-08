@@ -42,6 +42,7 @@
     toggle.setAttribute("aria-expanded", open ? "true" : "false");
     toggle.setAttribute("aria-label", navToggleLabel(open));
     nav.classList.toggle("is-open", open);
+    document.body.classList.toggle("nav-open", open);
   }
 
   toggle.addEventListener("click", function () {
@@ -59,6 +60,19 @@
 
   window.addEventListener("keydown", function (e) {
     if (e.key === "Escape") setOpen(false);
+  });
+
+  document.addEventListener("click", function (e) {
+    if (toggle.getAttribute("aria-expanded") !== "true") return;
+    var header = toggle.closest(".site-header");
+    if (header && header.contains(e.target)) return;
+    setOpen(false);
+  });
+
+  window.addEventListener("resize", function () {
+    if (!window.matchMedia("(max-width: 720px)").matches) {
+      setOpen(false);
+    }
   });
 
   if (typeof HeroCarousel !== "undefined" && typeof HeroCarousel.init === "function") {

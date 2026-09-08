@@ -108,6 +108,23 @@
 
     lightboxIndex = (index + lightboxItems.length) % lightboxItems.length;
     var item = lightboxItems[lightboxIndex];
+    lightboxEl.classList.remove("is-wide-image");
+    lightboxImageEl.onload = function () {
+      var ratio =
+        lightboxImageEl.naturalHeight > 0
+          ? lightboxImageEl.naturalWidth / lightboxImageEl.naturalHeight
+          : 0;
+      var shouldPan =
+        ratio > 1.45 && window.matchMedia("(max-width: 520px)").matches;
+      lightboxEl.classList.toggle("is-wide-image", shouldPan);
+      if (!shouldPan) return;
+      window.requestAnimationFrame(function () {
+        var dialog = lightboxImageEl.closest(".work-lightbox-dialog");
+        if (dialog) {
+          dialog.scrollLeft = Math.max(0, (dialog.scrollWidth - dialog.clientWidth) / 2);
+        }
+      });
+    };
     lightboxImageEl.src = item.src;
     lightboxImageEl.alt = item.alt || "";
     lightboxEl.classList.toggle("has-single-image", lightboxItems.length < 2);
@@ -294,6 +311,8 @@
     lightboxPrevBtn = document.getElementById("work-lightbox-prev");
     lightboxNextBtn = document.getElementById("work-lightbox-next");
     var closeBtn = document.getElementById("work-lightbox-close");
+    var touchStartX = 0;
+    var touchStartY = 0;
     if (!lightboxEl || !lightboxImageEl || !closeBtn) return;
 
     closeBtn.addEventListener("click", closeLightbox);
@@ -310,6 +329,26 @@
     lightboxEl.addEventListener("click", function (event) {
       if (event.target === lightboxEl) closeLightbox();
     });
+    lightboxEl.addEventListener(
+      "touchstart",
+      function (event) {
+        if (!event.changedTouches || !event.changedTouches.length) return;
+        touchStartX = event.changedTouches[0].clientX;
+        touchStartY = event.changedTouches[0].clientY;
+      },
+      { passive: true }
+    );
+    lightboxEl.addEventListener(
+      "touchend",
+      function (event) {
+        if (!event.changedTouches || !event.changedTouches.length) return;
+        var dx = event.changedTouches[0].clientX - touchStartX;
+        var dy = event.changedTouches[0].clientY - touchStartY;
+        if (Math.abs(dx) < 48 || Math.abs(dx) < Math.abs(dy) * 1.2) return;
+        moveLightbox(dx > 0 ? -1 : 1);
+      },
+      { passive: true }
+    );
     document.addEventListener("keydown", function (event) {
       if (!lightboxEl || lightboxEl.hidden) return;
       if (event.key === "Escape") closeLightbox();
